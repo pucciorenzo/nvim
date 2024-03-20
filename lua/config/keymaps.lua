@@ -21,8 +21,12 @@ vim.keymap.set("n", "<leader>4", function()
   ui.nav_file(4)
 end)
 
--- autoformat
+-- lsp
 vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
+vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
+vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
 
 -- telescope
 require("plugins.telescope")
@@ -55,5 +59,5 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]]) -- copy in os buffer
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- git
-vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", { desc = "[G]it [P]review" })
+vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", { silent = true, desc = "[G]it [P]review" })
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "[G]it [S]tatus" })

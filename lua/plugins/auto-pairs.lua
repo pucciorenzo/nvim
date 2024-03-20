@@ -15,6 +15,7 @@ return {
 				manual_position = true,
 				highlight = "Search",
 				highlight_grey = "Comment",
+				map_c_h = true,
 			},
 		})
 	end,
