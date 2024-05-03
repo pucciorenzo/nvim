@@ -5,24 +5,21 @@ local ui = require("harpoon.ui")
 
 vim.keymap.set("n", "<leader>a", mark.add_file)
 vim.keymap.set("n", "<leader>hh", ui.toggle_quick_menu)
-vim.keymap.set("n", "<leader>hn", function()
-  ui.nav_next()
-end)
 vim.keymap.set("n", "<leader>1", function()
-  ui.nav_file(1)
+	ui.nav_file(1)
 end)
 vim.keymap.set("n", "<leader>2", function()
-  ui.nav_file(2)
+	ui.nav_file(2)
 end)
 vim.keymap.set("n", "<leader>3", function()
-  ui.nav_file(3)
+	ui.nav_file(3)
 end)
 vim.keymap.set("n", "<leader>4", function()
-  ui.nav_file(4)
+	ui.nav_file(4)
 end)
 
 -- lsp
-vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
+vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, { desc = "[F]ormat file" })
 vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
 vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
@@ -36,12 +33,12 @@ vim.keymap.set("n", "<leader>jl", require("telescope.builtin").jumplist, { desc 
 vim.keymap.set("n", "<leader>km", require("telescope.builtin").keymaps, { desc = "[K]ey[M]aps" })
 vim.keymap.set("n", "<leader>rg", require("telescope.builtin").registers, { desc = "[R]egisters" })
 vim.keymap.set("n", "<leader>ht", require("telescope.builtin").help_tags, { desc = "[H]elp [T]ags" })
-vim.keymap.set("n", "<leader>pf", require("telescope.builtin").find_files, {})
-vim.keymap.set("n", "<C-p>", require("telescope.builtin").git_files, {})
-vim.keymap.set("n", "<leader>pg", require("telescope.builtin").live_grep, {})
+vim.keymap.set("n", "<leader>pf", require("telescope.builtin").find_files, { desc = "[P] [F]ind files" })
+vim.keymap.set("n", "<leader>gg", require("telescope.builtin").git_files, { desc = "[G] [G]it files" })
+vim.keymap.set("n", "<leader>pg", require("telescope.builtin").live_grep, { desc = "[P] [G]rep inside files" })
 
 -- exit
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Return to explorer" })
 
 -- dehighlight
 vim.keymap.set("n", "<leader><Space>", ":noh<CR>", { silent = true })
@@ -53,8 +50,9 @@ vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
--- copy and paste
-vim.keymap.set("x", "<leader>p", [["_dP]])         -- allow to paste text over something else without overwrite the buffer
+-- copy, paste and delete
+vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+vim.keymap.set("x", "<leader>p", [["_dP]]) -- allow to paste text over something else without overwrite the buffer
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]]) -- copy in os buffer
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
