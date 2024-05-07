@@ -31,9 +31,9 @@ return {
 			lspconfig.gopls.setup({
 				capabilities = capabilities,
 			})
-      lspconfig.clangd.setup({
-        capabilities = capabilities,
-      })
+			lspconfig.clangd.setup({
+				capabilities = capabilities,
+			})
 		end,
 	},
 }
