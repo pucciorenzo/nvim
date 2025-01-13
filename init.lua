@@ -12,6 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 vim.g.mapleader = " "
+vim.cmd([[autocmd VimLeave * set guicursor=a:ver25]])
 
 require("lazy").setup("plugins")
 require("config.keymaps")
