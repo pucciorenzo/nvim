@@ -17,6 +17,9 @@ end)
 vim.keymap.set("n", "<leader>4", function()
 	ui.nav_file(4)
 end)
+vim.keymap.set("n", "<leader>5", function()
+	ui.nav_file(5)
+end)
 
 -- lsp
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, { desc = "[F]ormat file" })
@@ -37,6 +40,10 @@ vim.keymap.set("n", "<leader>pf", require("telescope.builtin").find_files, { des
 vim.keymap.set("n", "<leader>gg", require("telescope.builtin").git_files, { desc = "[G] [G]it files" })
 vim.keymap.set("n", "<leader>pg", require("telescope.builtin").live_grep, { desc = "[P] [G]rep inside files" })
 
+-- diagnostic
+vim.keymap.set("n", "<leader>se", function() vim.diagnostic.open_float(nil, { focusable = false }) end, { desc = "[S]how [E]rror diagnostic" })
+
+
 -- exit
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Return to explorer" })
 
@@ -55,6 +62,7 @@ vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
 vim.keymap.set("x", "<leader>p", [["_dP]]) -- allow to paste text over something else without overwrite the buffer
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]]) -- copy in os buffer
 vim.keymap.set("n", "<leader>Y", [["+Y]])
+vim.keymap.set("v", "<leader>c", ":w !clip.exe<CR><CR>", { silent = true })
 
 -- git
 vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", { silent = true, desc = "[G]it [P]review" })
